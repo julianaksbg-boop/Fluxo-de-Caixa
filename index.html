@@ -542,6 +542,8 @@ function route(){const h=location.hash.slice(1);PG=!h||h==='inicio'?'home':h==='
 document.querySelectorAll('#nv a').forEach(a=>{const r=a.getAttribute('href').slice(1);a.classList.toggle('on',r===(h||'inicio')||(PG==='dash'&&r==='detalhes'&&h!=='importar'))});
 hh();if(PG==='plan')renderPlan();else{paint();const e=PG==='dash'&&h&&h!=='detalhes'&&document.getElementById(h);hh();if(e)e.scrollIntoView();else scrollTo(0,0)}spyU()}
 const deb=(f,ms)=>{let t;return()=>{clearTimeout(t);t=setTimeout(f,ms)}},tabD=deb(()=>tabela(),200);
+$('#tc').innerHTML='<option value="dfc">Todos (sem transferências)</option><option value="all">Todos (com transferências)</option>'+Object.keys(CLS).map(c=>`<option value="${c}">${cp(c)}</option>`).join('');
+addEventListener('hashchange',route);
 const SM=ld('fc_sim',{r:30,g:20,b:'fcl',rg:'',cg:''});$('#simR').value=$('#simRa').value=SM.r;$('#simG').value=$('#simGa').value=SM.g;$('#simB').value=SM.b;$('#simRG').value=SM.rg||'';$('#simCG').value=SM.cg||'';
 Object.values(IMP).forEach(r=>ensure(r));load();prep();route();
 </script></body></html>
